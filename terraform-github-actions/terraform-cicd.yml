@@ -16,6 +16,17 @@ jobs:
       AWS_DEFAULT_REGION: us-east-1 # change if needed
 
     steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+     - name: Configure AWS Credentials
+       uses: aws-actions/configure-aws-credentials@v4
+
+       with:
+
+         role-to-assume: arn:aws:iam::724680458823:oidc-provider/token.actions.githubusercontent.com
+         aws-region: us-east-1
+         
       - name: Checkout
         uses: actions/checkout@v4
 
